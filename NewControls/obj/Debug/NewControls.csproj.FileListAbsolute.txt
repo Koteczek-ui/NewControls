@@ -1,0 +1,9 @@
+F:\source\repos\NewControls\NewControls\bin\Debug\NewControls.dll
+F:\source\repos\NewControls\NewControls\bin\Debug\NewControls.pdb
+F:\source\repos\NewControls\NewControls\obj\Debug\NewControls.csproj.AssemblyReference.cache
+F:\source\repos\NewControls\NewControls\obj\Debug\NewControls.csproj.GenerateResource.cache
+F:\source\repos\NewControls\NewControls\obj\Debug\NewControls.csproj.CoreCompileInputs.cache
+F:\source\repos\NewControls\NewControls\obj\Debug\NewControls.dll
+F:\source\repos\NewControls\NewControls\obj\Debug\NewControls.pdb
+F:\source\repos\NewControls\NewControls\obj\Debug\NewControls.Controls.CmdLink.resources
+F:\source\repos\NewControls\NewControls\obj\Debug\NewControls.Controls.PBar.resources
