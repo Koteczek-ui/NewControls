@@ -51,9 +51,10 @@ namespace NewControls.Dialogs
             }
         }
 
-        public ProgressDialog(string title, string text, PBar pBar, bool cancelBtn = true, string cancelBtnText = "Cancel", bool cancelBtnVisible = true, Action cancelAction = null) : base(title, cancelBtn)
+        public ProgressDialog(string title, string text, PBar pBar, bool cancelBtn = true, Action cancelAction = null, string cancelBtnText = "Cancel", bool cancelBtnVisible = true) : base(title, cancelBtn)
         {
             if (cancelAction == null) cancelAction = () => Close();
+            _form.FormClosing += (sender, e) => cancelAction();
 
             this.PBar = pBar;
             _canClose = cancelBtn;

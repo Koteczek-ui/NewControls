@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("NewControls")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A new controls that includes enhanced button, command link, slider, and new progress bar.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Koteczek-ui (UI Cats)")]
 [assembly: AssemblyProduct("NewControls")]
 [assembly: AssemblyCopyright("Copyright ©  2026")]
 [assembly: AssemblyTrademark("")]
