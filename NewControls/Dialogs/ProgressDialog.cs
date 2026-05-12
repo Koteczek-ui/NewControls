@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Runtime.Remoting.Channels;
 using System.Windows.Forms;
 
 namespace NewControls.Dialogs
@@ -51,10 +52,10 @@ namespace NewControls.Dialogs
             }
         }
 
-        public ProgressDialog(string title, string text, PBar pBar, bool cancelBtn = true, Action cancelAction = null, string cancelBtnText = "Cancel", bool cancelBtnVisible = true) : base(title, cancelBtn)
+        public ProgressDialog(string title, string text, PBar pBar, bool cancelBtn = true, Action<object, EventArgs> cancelAction = null, string cancelBtnText = "Cancel", bool cancelBtnVisible = true) : base(title, cancelBtn)
         {
-            if (cancelAction == null) cancelAction = () => Close();
-            _form.FormClosing += (sender, e) => cancelAction();
+            if (cancelAction == null) cancelAction = (sender, e) => Close();
+            _form.FormClosing += (sender, e) => cancelAction(sender, e);
 
             this.PBar = pBar;
             _canClose = cancelBtn;
@@ -80,7 +81,7 @@ namespace NewControls.Dialogs
                 Visible = cancelBtnVisible,
                 Enabled = cancelBtn
             };
-            _cancelBtn.Click += (s, e) => cancelAction();
+            _cancelBtn.Click += (sender, e) => cancelAction(sender, e);
 
             _form.Controls.Add(_pBar);
             _form.Controls.Add(_txtLbl);
