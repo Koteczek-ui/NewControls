@@ -2,7 +2,7 @@
 {
     public class NewControls
     {
-        public static readonly string Ver = "v2.0.3";
-        public static readonly string Changelog = "# `NewControls` Changelog\n\n## New Features\n- In `ProgressDialog` class, you can now update progress bar using `PBar` field!\n";
+        public static readonly string Ver = "v2.0.9";
+        public static readonly string Changelog = "# `NewControls` Changelog\n\n## Bugfixes\n- Repaired `CmdLink` control size with empty `Note` property in `ActionDialog` class.\n";
     }
 }

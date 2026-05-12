@@ -116,7 +116,7 @@ namespace NewControls.Dialogs
                 Action action = _actions[lnk];
 
                 lnk.Dock = DockStyle.Top;
-                lnk.Height = string.IsNullOrEmpty(lnk.Note) ? 35 : 55;
+                lnk.Height = string.IsNullOrEmpty(lnk.Note) ? 40 : 55;
                 lnk.Margin = new Padding(0, 0, 0, 10);
 
                 lnk.Click += (sender, e) => action();
