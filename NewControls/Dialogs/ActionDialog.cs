@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace NewControls.Dialogs
@@ -10,7 +11,7 @@ namespace NewControls.Dialogs
     public class ActionDialog : Dialog
     {
         private string _txt;
-        private Dictionary<CmdLink, Action> _actions;
+        private Dictionary<CmdLink, Action<ActionDialog>> _actions;
         private Font _txtFont;
         private Color _txtFgColor;
         private Color _txtBgColor;
@@ -30,7 +31,7 @@ namespace NewControls.Dialogs
         }
 
         [Category("Behavior")]
-        public Dictionary<CmdLink, Action> Actions
+        public Dictionary<CmdLink, Action<ActionDialog>> Actions
         {
             get => _actions;
             set
@@ -73,7 +74,7 @@ namespace NewControls.Dialogs
             }
         }
 
-        public ActionDialog(string title, string text, Dictionary<CmdLink, Action> actions, bool canClose = true) : base(title, canClose)
+        public ActionDialog(string title, string text, Dictionary<CmdLink, Action<ActionDialog>> actions, bool canClose = true) : base(title, canClose)
         {
             _form.AutoSize = true;
             _form.AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -113,13 +114,13 @@ namespace NewControls.Dialogs
 
             foreach (var lnk in links)
             {
-                Action action = _actions[lnk];
+                Action<ActionDialog> action = _actions[lnk];
 
                 lnk.Dock = DockStyle.Top;
-                lnk.Height = string.IsNullOrEmpty(lnk.Note) ? 40 : 55;
+                lnk.Height = string.IsNullOrEmpty(lnk.Note) ? 42 : 56;
                 lnk.Margin = new Padding(0, 0, 0, 10);
 
-                lnk.Click += (sender, e) => action();
+                lnk.Click += (sender, e) => action(this);
 
                 _actionsPanel.Controls.Add(lnk);
             }
