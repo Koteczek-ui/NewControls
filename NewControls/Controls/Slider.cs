@@ -1,11 +1,12 @@
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace NewControls.Controls
 {
-    [System.ComponentModel.ToolboxItem(true)]
+    [ToolboxItem(true)]
     public class Slider : UserControl
     {
         private bool _checked = false;

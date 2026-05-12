@@ -2,7 +2,6 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace NewControls.Dialogs
@@ -42,11 +41,21 @@ namespace NewControls.Dialogs
             get => _cancelBtn;
         }
 
+        public PBar PBar
+        {
+            get => _pBar;
+            set
+            {
+                _pBar = value;
+                UpdatePBar(_pBar);
+            }
+        }
+
         public ProgressDialog(string title, string text, PBar pBar, bool cancelBtn = true, string cancelBtnText = "Cancel", bool cancelBtnVisible = true, Action cancelAction = null) : base(title, cancelBtn)
         {
             if (cancelAction == null) cancelAction = () => Close();
 
-            _pBar = pBar;
+            this.PBar = pBar;
             _canClose = cancelBtn;
 
             _txtLbl = new Label
@@ -80,6 +89,17 @@ namespace NewControls.Dialogs
 
             if (cancelBtnVisible)
                 _form.Height += _cancelBtn.Height;
+        }
+
+        private void UpdatePBar(PBar pBar)
+        {
+            if (pBar != null)
+            {
+                _pBarFgColor = pBar.ForeColor;
+                pBar.ForeColor = _pBarFgColor;
+                pBar.Dock = DockStyle.Top;
+                if (!_form.Controls.Contains(pBar)) _form.Controls.Add(pBar);
+            }
         }
     }
 }

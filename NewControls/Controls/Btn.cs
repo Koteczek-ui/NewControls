@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace NewControls.Controls
 {
-    [System.ComponentModel.ToolboxItem(true)]
+    [ToolboxItem(true)]
     public partial class Btn : Button
     {
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]

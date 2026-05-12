@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace NewControls.Controls
 {
-    [System.ComponentModel.ToolboxItem(true)]
+    [ToolboxItem(true)]
     public partial class CmdLink : Btn
     {
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]
