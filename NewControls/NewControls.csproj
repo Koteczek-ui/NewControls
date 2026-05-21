@@ -52,6 +52,9 @@
     <Compile Include="Controls\CmdLink.Designer.cs">
       <DependentUpon>CmdLink.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Spinner.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Dialogs\ActionDialog.cs" />
     <Compile Include="Dialogs\Dialog.cs" />
     <Compile Include="Dialogs\MsgBox.cs" />
